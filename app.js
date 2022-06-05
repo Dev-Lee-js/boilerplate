@@ -2,14 +2,15 @@ const express = require("express")
 const app = express()
 const PORT = 3000;
 const mongoose = require("mongoose")
+const config = require("./config/key.js")
 
 const { User } = require("./models/User");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://jongseok:852456a@cluster0.oit5f.mongodb.net/?retryWrites=true&w=majority', {
-}).then(() => console.log('MongoDB 연결중...'))
+mongoose.connect(config.mongoURI)
+  .then(() => console.log('MongoDB 연결중...'))
   .catch(err => console.log(err))
 
 
