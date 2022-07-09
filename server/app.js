@@ -6,7 +6,6 @@ const config = require("./config/key.js")
 const bcrypt = require("bcrypt")
 const cookieParser = require("cookie-parser")
 const { auth } = require("./middleware/auth")
-
 const { User } = require("./models/User");
 
 app.use(express.urlencoded({ extended: true }));
@@ -16,12 +15,11 @@ app.use(cookieParser())
 mongoose.connect(config.mongoURI)
   .then(() => console.log('MongoDB 연결중...'))
   .catch(err => console.log(err))
-
-
-app.get("/api/users/",(req,res)=>{
-    res.send("Hello wwwWorld~~!")
+   
+  
+app.get("/api/hello", (req,res)=>{
+	res.send("qweqwe")
 })
-
 
 app.post('/api/users/register', (req, res) => {
 
